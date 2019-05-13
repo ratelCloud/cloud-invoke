@@ -1,0 +1,42 @@
+## 基本配置
+server:
+  name: invoke
+  port: 8102
+#spring相关配置
+spring:
+  profiles:
+    active: dev
+
+  datasource:
+    url: jdbc:mysql://192.168.147.192:3306/pintuan?useSSL=false&useUnicode=true&characterEncoding=utf-8
+    username: pintuan
+    password: FJAOFbhS0sMzyZzY
+  application:
+    name: invoke
+#统一格式
+  jackson:
+      date-format: yyyy-MM-dd #如果使用字符串表示，用这行设置格式
+      timezone: GMT+8
+      serialization:
+        write-dates-as-timestamps: false #使用时间戳，使用数值timestamp表示日期
+
+#
+#eureka:
+#  client:
+#    serviceUrl:
+#      defaultZone: http://localhost:2100/eureka/
+
+#swagger http://localhost:ip/swagger-ui.html#!
+swagger:
+  title: invoke
+  description: invoke接口文档
+  version: 1.0
+  basePackage: com.ratel.invoke.controller
+
+
+ratel:
+  demo: localhost:8101
+  exception:
+    '1001': 参数异常！
+    '2001': redis异常！
+    '1000': {0}
